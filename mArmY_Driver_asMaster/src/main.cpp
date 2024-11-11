@@ -38,6 +38,9 @@ HardwareTimer timer(TIM3);
 // // Gantry X Instances ----------//
 // #define ENC1_nCS PC10
 // #define ENC2_nCS PA4
+// #define LED_CS PC4 // always on LED
+// #define Solenoid_CS_A PA2 // never set both solenoid coils high at once, each one should only be on for <100ms at once and immediately turned off to prevent overheat
+// #define Solenoid_CS_B PA3 // depending on the direction the wire is connected, one will make the solenoid valve extend, the other will close the valve
 
 // Gantry Z, mArm Instance ----------//
 #define ENC1_nCS PA4
