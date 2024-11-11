@@ -11,8 +11,8 @@
 #include "stm32g4xx_it.h"
 #include "stm32g4xx_hal_uart.h"
 
-#define motorID 0xAA
-#define nextMotorID 0xBA
+#define motorID 0xBA
+#define nextMotorID 0xAA
 float priorMotorAngle = 0.0f;
 
 // Create a HardwareTimer instance for Timer 3
