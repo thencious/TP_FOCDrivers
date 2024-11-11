@@ -1,7 +1,7 @@
 # Steps to setup motors
 #### 1. Read these before you read the rest: 
 1. Basics: https://docs.simplefoc.com/steppermotor
-2. Torque Control: docs.simplefoc.com/torque_control (Voltage mode -estimated current)
+2. Torque Control (Voltage mode -estimated current): docs.simplefoc.com/torque_control
 3. Communication & board IO: https://miro.com/welcomeonboard/WWRvTDV0TkJGNzBaMU1rTTNhOUptRS9xOXlBalByc1NNZEh5WHU0b0ZoVWQzRDhvTHZxTC83NE4vM1Vqa3gxeFJncytxTzVZL0ZISU5lRzlyNzk2Qjkra21YbEFibUZXT2prcmZUMmtaOWlNQ1kyUVhiY3VYa3FrUHZUTjFnb04hZQ==?share_link_id=483281023795
 #### 2. Tools:
 1. RS485 PC End point: https://drive.google.com/file/d/1kWFYFm4FZqrVX-wjg3YuICJs8cdf8yDp/view?usp=drive_link
