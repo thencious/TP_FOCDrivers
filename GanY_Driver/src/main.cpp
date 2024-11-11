@@ -207,7 +207,7 @@ void setup()
   // angle loop velocity limit
   // motor.velocity_limit = 10;
 
-  // initialise motor
+  // initialize motor
   motor.init();
 
   // // init current sense
@@ -217,10 +217,11 @@ void setup()
   // motor.linkCurrentSense(&current_sense);
 
   // sensor offset [rad]
+  motor.sensor_offset = Enc1_SPI.getAngle();
   // motor.zero_electric_angle = 0;      // to be calculated and set after SPI has been zeroed with zeroing rig as to skip sensor alignment step which turns the motor 1/50 of a rotation to search for an ok electric zero angle.
   motor.sensor_direction = Direction::CW; // CW or CCW along the motor axis (not facing it)
   // align encoder and start FOC (skipped if the previous two statements are entered)
-  motor.initFOC(); // this will run sensor alignment if the 2 above variables are not both set.
+  motor.initFOC(); // this will run sensor alignment (try to find zero electric angle) if zero_electric_angle and sensor_direction are not both set.
 
   // set the initial target value
   motor.target = currentTarget;
@@ -271,7 +272,7 @@ void DMA_sendFloat(float dataf)
   uint8_t *angleBytes = reinterpret_cast<uint8_t *>(&dataf);
 
   // Add the Start byte
-  dma_tx_buffer[0] = 0xFF; // Start
+  dma_tx_buffer[0] = 0xF0; // Start
 
   // Fill the buffer with angle bytes (4 bytes for float)
   dma_tx_buffer[4] = angleBytes[0];
