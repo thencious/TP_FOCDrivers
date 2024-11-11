@@ -25,31 +25,28 @@ HardwareTimer timer(TIM3);
 // // Gantry Y Instances ----------//
 // #define ENC1_nCS PB9
 // #define ENC2_nCS PA15
-
 // // ENC SPI 3 Instance
 // #define ENC_MOSI PB_5_ALT1
 // #define ENC_MISO PB_4_ALT1
 // #define ENC_SCK PC10
-
 // // ENC1 Hardware ABZ Instance
 // #define ENC1_PPR 16384
 // #define ENC1_A PA_0
 // #define ENC1_B PA_1
 // #define ENC1_I PA_5
 
-// Gantry X Instances ----------//
-#define ENC1_nCS PC10
-#define ENC2_nCS PA4
+// // Gantry X Instances ----------//
+// #define ENC1_nCS PC10
+// #define ENC2_nCS PA4
 
-// // Gantry Z Instance ----------//
-// #define ENC1_nCS PA4
+// Gantry Z, mArm Instance ----------//
+#define ENC1_nCS PA4
 
-// Shared X & Z Instances ----------//
+// Shared X & Z & mArm Instances ----------//
 // ENC SPI 1 Instance
 #define ENC_MOSI PA_7
 #define ENC_MISO PA_6
 #define ENC_SCK PA_5
-
 // ENC1 Hardware ABZ Instance
 #define ENC1_PPR 16384
 #define ENC1_A PB_4
@@ -62,12 +59,10 @@ HardwareTimer timer(TIM3);
 #define PWM_A1 PA_9
 #define PWM_B0 PA_10
 #define PWM_B1 PA_11
-
 // Driver settings pin definition
 #define DRV_TOFF PC6
 #define DRV_SLEEP PB15
 #define DRV_DECAY PB14
-
 // Encoder settings pin definition
 #define ENC1_CAL PC14
 
