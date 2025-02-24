@@ -1,9 +1,23 @@
 // Constants
-const float leadWormSc = 44.429f;        // Lead of the parallel worm screws in mm per revolution
-const float leadMArm = 19.1f * _PI;      // Lead of the MArm's linear guide rail in mm per revolution
+const float leadGantryX = 0.044429f;        // Lead of the parallel worm screws in m per revolution
+const float leadGantryZ = 0.02f;
+const float leadGantryY = 0.06f;
 
-const float GxLinearPerRad = leadWormSc / (2.0f * _PI);  // Linear movement per radian for Gx
-const float MArmLinearPerRad = leadMArm / (2.0f * _PI);  // Linear movement per radian for the MArm gantry
+const float GantryXLinearPosPerRad = leadGantryX / (2.0f * _PI);  // Linear movement per radian for Gx
+const float GantryZLinearPosPerRad = leadGantryZ / (2.0f * _PI);  // Linear movement per radian for Gx
+const float GantryYLinearPosPerRad = leadGantryY / (2.0f * _PI);  // Linear movement per radian for Gx
+
+// Input
+float GantryYLinearPos // Linear position in m 
+float GantryXLinearPos // = 0.5f * GantryXLinearPosPerRad * (GantryX1AngleRad + GantryX2AngleRad);
+float GantryXRotAngleRad // = 2/3 * (GantryX2AngleRad - GantryX1AngleRad);
+float GantryZLinearPos
+
+// Output
+float GantryYAngleRad = GantryYLinearPos / GantryYLinearPosPerRad // motorID = AA, feedbackID = BA
+float GantryX1AngleRad = GantryXLinearPos / GantryXLinearPosPerRad - 0.75f * GantryXRotAngleRad // motorID = AC, feedbackID = BC
+float GantryX2AngleRad = GantryXLinearPos / GantryXLinearPosPerRad + 0.75f * GantryXRotAngleRad // motorID = AB, feedbackID = BB
+float GantryZAngleRad = GantryZLinearPos / GantryZLinearPosPerRad // motorID = AD, feedbackID = BD
 
 // Scaling constant for force feedback intensity (adjust as needed)
 float K = /* Your scaling constant value */;
@@ -18,8 +32,8 @@ float mArmZrotAngle = /* Encoder reading for mArmZrot (MArm rotational position)
 // Calculations
 
 // First System (Perpendicular Worm Screw)
-float GxLinearPos_mm = GxLinearPerRad * (Gx1Angle + Gx2Angle);          // Linear position in mm
-float GxRotAngleRad = Gx1Angle - Gx2Angle;                              // Rotational position in radians
+float GantryxLinearPos_mm = GantryxLinearPosPerRad * (Gantryx1AngleRad + Gantryx2AngleRad);          // Linear position in mm
+float GantryxRotAngleRad = 3/2 * (Gantryx1AngleRad - Gantryx2AngleRad);                              // Rotational position in radians
 
 // Second System (MArm Gantry)
 float MArmLinearPos_mm = MArmLinearPerRad * mArmZAngle;                 // Linear position in mm
